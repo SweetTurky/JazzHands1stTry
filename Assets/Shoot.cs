@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         XRGrabInteractable grabablePistol = GetComponent<XRGrabInteractable>();
-        grabablePistol.activated.AddListener(regularShot);
+        grabablePistol.activated.AddListener(RegularShot);
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour
 
     }
 
-    public void regularShot(ActivateEventArgs arg)
+    public void RegularShot(ActivateEventArgs arg)
     {
         GameObject newBullet = Instantiate(bullet);
         newBullet.transform.position = spawnPosition.position;
