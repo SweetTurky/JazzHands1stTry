@@ -8,6 +8,9 @@ TagManager:
   - triggerTag
   - PongBall
   - ControllerCollider
+  - FxTemporaire
+  - Player1Cup
+  - Player2Cup
   layers:
   - Default
   - TransparentFX

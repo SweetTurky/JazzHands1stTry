@@ -13,6 +13,10 @@ public class CupBehaviour : MonoBehaviour
     public ParticleSystem hitEffect; // Assign in Inspector
     public AudioClip[] soundEffects;// Assign in Inspector
 
+    void DeactivateGameObject()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PongBall"))
@@ -33,7 +37,7 @@ public class CupBehaviour : MonoBehaviour
                 ballBehaviour.TeleportSphereTo(respawnPoint);
 
                 // Remove the cup after the particle effect finishes
-                Destroy(gameObject, 1.5f);
+                Invoke("DeactivateGameObject", 1.2f);
                 GameManager.Instance.CheckWinCondition(owner);
             }
         }

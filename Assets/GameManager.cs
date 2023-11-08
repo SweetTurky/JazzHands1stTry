@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +9,18 @@ public class GameManager : MonoBehaviour
     public int player2CupsDestroyed = 0;
 
     public AudioClip victorySound;
+    public ParticleSystem winParticle;
 
+    public Transform[] player1CupOriginalPositions; // Assign in Inspector
+    public Transform[] player2CupOriginalPositions; // Assign in Inspector
+
+    private Transform[] player1Cups;
+    private Transform[] player2Cups;
+
+    public GameObject p1Wins;
+    public GameObject p2Wins;
+
+    public GameObject resetObject;
     private void Awake()
     {
         if (Instance == null)
@@ -19,6 +31,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // Initialize player1Cups and player2Cups arrays with cup transforms
+        player1Cups = GameObject.FindGameObjectsWithTag("Player1Cup").Select(cup => cup.transform).ToArray();
+        player2Cups = GameObject.FindGameObjectsWithTag("Player2Cup").Select(cup => cup.transform).ToArray();
+
     }
 
     public void CheckWinCondition(CupOwner owner)
@@ -36,21 +53,50 @@ public class GameManager : MonoBehaviour
         {
             PlayVictoryEffects();
             Debug.Log("Player 2 wins!");
-            ResetGame();
         }
         else if (player2CupsDestroyed == 6)
         {
             PlayVictoryEffects();
             Debug.Log("Player 1 wins!");
+        }
+    }
+
+    public void ResetPlayerCupsOnClick()
+    {
+        ResetPlayerCups(player1Cups); // Assuming player1Cups is an array of Transform
+        ResetPlayerCups(player2Cups); // Assuming player2Cups is an array of Transform
+    }
+
+    public void ResetPlayerCups(Transform[] cups)
+    {
+        foreach (Transform cup in cups)
+        {
+            cup.gameObject.SetActive(true);
             ResetGame();
         }
     }
 
     private void PlayVictoryEffects()
     {
-        // Add code here to play victory sound and sparks
-        // For example:
-        // AudioSource.PlayClipAtPoint(victorySound, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(victorySound, Camera.main.transform.position);
+
+        // Instantiate the particle effect
+        if (winParticle != null)
+        {
+            winParticle.Play();
+        }
+
+        if(player1CupsDestroyed == 6)
+        {
+            p2Wins.SetActive(true);
+        }
+
+        if(player2CupsDestroyed == 6)
+        { 
+            p1Wins.SetActive(true);       
+        }
+
+        resetObject.SetActive(true);
     }
 
     private void ResetGame()
