@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/JazzHands.unity
+    path: Assets/Scenes/JazzHands/JazzHands.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e49d6c04636888e4fb4d0524e92bb473,
