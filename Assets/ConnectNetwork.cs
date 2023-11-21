@@ -14,11 +14,13 @@ public class ConnectNetwork : MonoBehaviour
     public void StartHost()
     {
         NetworkManager.Singleton.StartHost();
+        Debug.Log("Host is starting...");
     }
 
     public void StartClient()
     {
         NetworkManager.Singleton.StartClient();
+        Debug.Log("Client is starting...");
     }
 
     // Update is called once per frame
