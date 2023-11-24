@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JazzHands/JazzHands.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/JazzHands/Menu.unity
+    guid: 426efda6438f139478aa28378d90ab21
+  - enabled: 1
+    path: Assets/Scenes/JazzHands/BarScene.unity
+    guid: ec819f1f958d4164d81f6d1624256d13
+  - enabled: 1
+    path: Assets/Scenes/JazzHands/CloudScene.unity
+    guid: 2021bf27a18a49640a0fa55109534bd6
+  - enabled: 1
+    path: Assets/Scenes/JazzHands/UnderwaterScene.unity
+    guid: 76f60b6456798304d96e7911d6a80eb0
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e49d6c04636888e4fb4d0524e92bb473,
       type: 2}
