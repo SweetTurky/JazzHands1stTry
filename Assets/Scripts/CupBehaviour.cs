@@ -37,7 +37,7 @@ public class CupBehaviour : MonoBehaviour
                 ballBehaviour.TeleportSphereTo(respawnPoint);
 
                 // Remove the cup after the particle effect finishes
-                Invoke("DeactivateGameObject", 1.2f);
+                Invoke(nameof(DeactivateGameObject), 1.2f);
                 GameManager.Instance.CheckWinCondition(owner);
             }
         }

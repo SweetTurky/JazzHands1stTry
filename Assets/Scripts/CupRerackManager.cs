@@ -5,7 +5,7 @@ using UnityEngine;
 public class CupRerackManager : MonoBehaviour
 {
     public GameObject cupParent; // Parent object containing all cups
-    private int remainingCups = 10; // Initial cup count (assuming 10 cups)
+    private int remainingCups; // Initial cup count (should be 6 if 6-cup game bool is true or 10 if bool false)
 
     private bool rerackAvailable = true;
 
