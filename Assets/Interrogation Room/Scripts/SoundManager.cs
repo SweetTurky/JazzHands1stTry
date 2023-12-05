@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public BiometricInputManager biometricInputManager;
+    public EventManager eventManager; 
     public AudioClip[] voicelinesNeutral;
     public AudioClip[] voicelinesAngry;
     public AudioClip finalSuccess;
@@ -27,17 +28,23 @@ public class SoundManager : MonoBehaviour
             audioSource.Play();
             currentVoicelineIndex++;
         }
-        else
+        else if(currentVoicelines.Length == 9 && eventManager.noCount > 4)
         {
-            // All voicelines played, handle accordingly (e.g., end of dialogue)
+            eventManager.LoseGame();
+        }
+        else if(currentVoicelines.Length == 9 && eventManager.noCount < 4)
+        {
+            eventManager.WinGame();
         }
     }
     public void PlaySuccessVoiceline()
     {
-        
+        audioSource.clip = finalSuccess;
+        audioSource.Play();
     }
     public void PlayFailureVoiceline()
     {
-        
+        audioSource.clip = finalFaliure;
+        audioSource.Play();
     }
 }
