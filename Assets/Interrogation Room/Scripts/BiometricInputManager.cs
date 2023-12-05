@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BiometricInputManager : MonoBehaviour
 {
+    public bool isAngry = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,9 @@ public class BiometricInputManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void IsAngry()
+    {
+
     }
 }
