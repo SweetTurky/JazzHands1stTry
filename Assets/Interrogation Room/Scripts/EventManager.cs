@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviour
         {
             // Player input detected, play the next voiceline
             soundManager.PlayNextVoiceline();
+            soundManager.currentVoicelineIndex++;
             /*
             if (noCount > 4)
             {
@@ -29,6 +30,7 @@ public class EventManager : MonoBehaviour
         {
             noCount++;
             soundManager.PlayNextVoiceline();
+            soundManager.currentVoicelineIndex++;
 
          /*   if (noCount > 4)
             {

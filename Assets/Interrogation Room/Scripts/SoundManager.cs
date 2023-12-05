@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.clip = currentVoicelines[currentVoicelineIndex];
             audioSource.Play();
-            currentVoicelineIndex++;
+            //currentVoicelineIndex++;
         }
         else if(currentVoicelines.Length == 9 && eventManager.noCount > 4)
         {
