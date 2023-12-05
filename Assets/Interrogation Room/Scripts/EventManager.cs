@@ -14,36 +14,22 @@ public class EventManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y)) // Change to the desired input
         {
             // Player input detected, play the next voiceline
-            soundManager.PlayNextVoiceline();
-            soundManager.currentVoicelineIndex++;
-            /*
-            if (noCount > 4)
-            {
-                LoseGame();
-            }
-            else if (noCount < 4)
-            {
-                WinGame();
-            } */
+            biometricInputManager.LieDetection();
         }
         else if(Input.GetKeyDown(KeyCode.N))
         {
+            biometricInputManager.LieDetection();
             noCount++;
-            soundManager.PlayNextVoiceline();
-            soundManager.currentVoicelineIndex++;
-
-         /*   if (noCount > 4)
-            {
-                LoseGame();
-            }
-            else if (noCount < 4)
-            {
-                WinGame();
-                
-            }*/
         }
     }
 
+    public void VoiceInput()
+    {
+        soundManager.PlayNextVoiceline();
+        soundManager.currentVoicelineIndex++;
+        
+    }
+    
     public void WinGame()
     {
         soundManager.PlaySuccessVoiceline();
