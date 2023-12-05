@@ -27,15 +27,16 @@ public class SoundManager : MonoBehaviour
             audioSource.clip = currentVoicelines[currentVoicelineIndex];
             audioSource.Play();
             //currentVoicelineIndex++;
+            if(currentVoicelines.Length >= 9 && eventManager.noCount > 4)
+            {
+                PlayFailureVoiceline();
+            }
+            else if(currentVoicelines.Length >= 9 && eventManager.noCount < 4)
+            {
+                PlaySuccessVoiceline();
+            }
         }
-        else if(currentVoicelines.Length >= 9 && eventManager.noCount > 4)
-        {
-            PlayFailureVoiceline();
-        }
-        else if(currentVoicelines.Length >= 9 && eventManager.noCount < 4)
-        {
-            PlaySuccessVoiceline();
-        }
+        
     }
     public void PlaySuccessVoiceline()
     {
