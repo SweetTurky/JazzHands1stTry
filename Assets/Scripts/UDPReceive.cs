@@ -14,7 +14,7 @@ public class UDPReceive : MonoBehaviour
     public bool startRecieving = true;
     public bool printToConsole = false;
     public string data;
-    public bool Goosebumps = false;
+    public bool gooseBumps = false;
 
 
     public void Start()
@@ -46,11 +46,11 @@ public class UDPReceive : MonoBehaviour
                 //Debug.Log(data);
                 if (data.Trim() == "0 No")
                 {
-                    Goosebumps = false;
+                    gooseBumps = false;
                 }
                 else if (data.Trim() == "1 Yes")
                 {
-                    Goosebumps = true;
+                    gooseBumps = true;
                 }
 
                 if (printToConsole) { print(data); }

@@ -33,14 +33,14 @@ public class BiometricInputManager : MonoBehaviour
         {
             lieCounter++;
         }
-        if (heartRateMonitorScript.heartRateHigh == true)
+        /*if (heartRateMonitorScript.heartRateHigh == true)
         {
             lieCounter++;
         }
         if (galvanicSkinResponseScript.moistureHigh == true)
         {
             lieCounter++;
-        }
+        }*/
         if (lieCounter >= 2)
         {
             isAngry = true;

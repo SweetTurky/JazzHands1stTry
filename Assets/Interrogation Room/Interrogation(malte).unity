@@ -1308,7 +1308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cad4a8c3adf3d4e94f1ef488d55218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAngry: 1
+  isAngry: 0
+  lieCounter: 0
+  uDPReceive: {fileID: 1284314598}
+  soundManager: {fileID: 412178212}
+  eventManager: {fileID: 412178211}
 --- !u!114 &412178211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1328,6 @@ MonoBehaviour:
   soundManager: {fileID: 412178212}
   biometricInputManager: {fileID: 412178210}
   noCount: 0
-  ja: 0
 --- !u!114 &412178212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,7 +1761,7 @@ MonoBehaviour:
   startRecieving: 1
   printToConsole: 0
   data: 
-  Goosebumps: 0
+  gooseBumps: 0
 --- !u!4 &1284314599
 Transform:
   m_ObjectHideFlags: 0
