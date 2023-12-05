@@ -28,11 +28,11 @@ public class SoundManager : MonoBehaviour
             audioSource.Play();
             //currentVoicelineIndex++;
         }
-        else if(currentVoicelines.Length == 9 && eventManager.noCount > 4)
+        else if(currentVoicelines.Length >= 9 && eventManager.noCount > 4)
         {
             PlayFailureVoiceline();
         }
-        else if(currentVoicelines.Length == 9 && eventManager.noCount < 4)
+        else if(currentVoicelines.Length >= 9 && eventManager.noCount < 4)
         {
             PlaySuccessVoiceline();
         }
