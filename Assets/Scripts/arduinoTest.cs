@@ -15,7 +15,7 @@ public class arduinoTest : MonoBehaviour
     public float measurementDuration = 5f;
 
     private SerialPort serialPort;
-    private List<float> gsrValues = new List<float>();
+    public List<float> gsrValues = new List<float>();
     private float elapsedTime = 0f;
 
 
@@ -24,7 +24,7 @@ public class arduinoTest : MonoBehaviour
     //public float measurementDuration2 = 5f;
 
     private SerialPort serialPort2;
-    private List<float> hrmValues = new List<float>();
+    public List<float> hrmValues = new List<float>();
     //private float elapsedTime = 0f;
 
     /*public float graphWidth = 300f; // Width of the graph in pixels

@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cad4a8c3adf3d4e94f1ef488d55218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAngry: 0
+  isAngry: 1
 --- !u!114 &412178211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,6 +1324,7 @@ MonoBehaviour:
   soundManager: {fileID: 412178212}
   biometricInputManager: {fileID: 412178210}
   noCount: 0
+  ja: 0
 --- !u!114 &412178212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   biometricInputManager: {fileID: 412178210}
+  eventManager: {fileID: 412178211}
   voicelinesNeutral:
   - {fileID: 8300000, guid: b2af5b161e634324f8c38ec13bf508a4, type: 3}
   - {fileID: 8300000, guid: 9966e6de05e99cb4894e605dd6916156, type: 3}
@@ -1355,8 +1357,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c366d7e975ef40e4bafe12c3241045d6, type: 3}
   - {fileID: 8300000, guid: f8d2dbe56d8635f4390dbe052085510f, type: 3}
   - {fileID: 8300000, guid: b216570cba35f104386e06465eb42c41, type: 3}
-  finalSuccess: {fileID: 8300000, guid: f3fcdf9dfd8dc784cbe89f098fee6424, type: 3}
-  finalFaliure: {fileID: 8300000, guid: 7c0e998a094f2434ba5342535a423804, type: 3}
+  finalSuccess:
+  - {fileID: 8300000, guid: f3fcdf9dfd8dc784cbe89f098fee6424, type: 3}
+  finalFaliure:
+  - {fileID: 8300000, guid: 7c0e998a094f2434ba5342535a423804, type: 3}
   currentVoicelineIndex: 0
 --- !u!4 &412178213
 Transform:
@@ -1754,6 +1758,7 @@ MonoBehaviour:
   startRecieving: 1
   printToConsole: 0
   data: 
+  Goosebumps: 0
 --- !u!4 &1284314599
 Transform:
   m_ObjectHideFlags: 0
@@ -2214,8 +2219,10 @@ MonoBehaviour:
   portName: COM3
   baudRate: 9600
   measurementDuration: 5
+  gsrValues: []
   portName2: COM7
   baudRate2: 115200
+  hrmValues: []
 --- !u!4 &1850408369
 Transform:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class UDPReceive : MonoBehaviour
     public bool startRecieving = true;
     public bool printToConsole = false;
     public string data;
+    public bool Goosebumps = false;
 
 
     public void Start()
@@ -25,7 +26,10 @@ public class UDPReceive : MonoBehaviour
         receiveThread.Start();
     }
 
-
+    public void Update()
+    {
+      
+    }
     // receive thread
     private void ReceiveData()
     {
@@ -39,14 +43,25 @@ public class UDPReceive : MonoBehaviour
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] dataByte = client.Receive(ref anyIP);
                 data = Encoding.UTF8.GetString(dataByte);
+                //Debug.Log(data);
+                if (data.Trim() == "0 No")
+                {
+                    Goosebumps = false;
+                }
+                else if (data.Trim() == "1 Yes")
+                {
+                    Goosebumps = true;
+                }
 
                 if (printToConsole) { print(data); }
+                
             }
             catch (Exception err)
             {
                 print(err.ToString());
             }
         }
+        
     }
 
 }
