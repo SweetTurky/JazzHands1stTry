@@ -15,7 +15,7 @@ public class EventManager : MonoBehaviour
         {
             // Player input detected, play the next voiceline
             soundManager.PlayNextVoiceline();
-
+            /*
             if (noCount > 4)
             {
                 LoseGame();
@@ -23,32 +23,30 @@ public class EventManager : MonoBehaviour
             else if (noCount < 4)
             {
                 WinGame();
-            }
+            } */
         }
         else if(Input.GetKeyDown(KeyCode.N))
         {
             noCount++;
             soundManager.PlayNextVoiceline();
 
-            if (noCount > 4)
+         /*   if (noCount > 4)
             {
                 LoseGame();
             }
             else if (noCount < 4)
             {
-                
-                
                 WinGame();
                 
-            }
+            }*/
         }
     }
 
-    private void WinGame()
+    public void WinGame()
     {
         soundManager.PlaySuccessVoiceline();
     }
-    private void LoseGame()
+    public void LoseGame()
     {
         soundManager.PlayFailureVoiceline();
     }
