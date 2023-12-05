@@ -8,8 +8,8 @@ public class SoundManager : MonoBehaviour
     public EventManager eventManager; 
     public AudioClip[] voicelinesNeutral;
     public AudioClip[] voicelinesAngry;
-    public AudioClip finalSuccess;
-    public AudioClip finalFaliure;
+    public AudioClip[] finalSuccess;
+    public AudioClip[] finalFaliure;
     public int currentVoicelineIndex = 0;
     private AudioSource audioSource;
 
@@ -30,21 +30,21 @@ public class SoundManager : MonoBehaviour
         }
         else if(currentVoicelines.Length == 9 && eventManager.noCount > 4)
         {
-            eventManager.LoseGame();
+            PlayFailureVoiceline();
         }
         else if(currentVoicelines.Length == 9 && eventManager.noCount < 4)
         {
-            eventManager.WinGame();
+            PlaySuccessVoiceline();
         }
     }
     public void PlaySuccessVoiceline()
     {
-        audioSource.clip = finalSuccess;
+        audioSource.clip = finalSuccess[0];
         audioSource.Play();
     }
     public void PlayFailureVoiceline()
     {
-        audioSource.clip = finalFaliure;
+        audioSource.clip = finalFaliure[0];
         audioSource.Play();
     }
 }
