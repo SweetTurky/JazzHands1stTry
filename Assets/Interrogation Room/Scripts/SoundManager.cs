@@ -29,12 +29,13 @@ public class SoundManager : MonoBehaviour
             //currentVoicelineIndex++;
             
         }
-        else{
-            if(currentVoicelines.Length >= 9 && eventManager.noCount > 4)
+        if (currentVoicelineIndex == currentVoicelines.Length)
+            {
+            if(eventManager.noCount > 4)
             {
                 PlayFailureVoiceline();
             }
-            else if(currentVoicelines.Length >= 9 && eventManager.noCount < 4)
+            else if(eventManager.noCount < 4)
             {
                 PlaySuccessVoiceline();
             }
