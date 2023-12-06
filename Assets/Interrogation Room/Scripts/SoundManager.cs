@@ -11,12 +11,14 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] finalSuccess;
     public AudioClip[] finalFaliure;
     public int currentVoicelineIndex = 0;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+    private AudioSource audioSource2;
+    public UIcontroller uiController;
 
     public void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
-        PlayNextVoiceline();
+        //audioSource = gameObject.AddComponent<AudioSource>();
+        StartCoroutine(startFirstVoiceline());
     }
 
     public void PlayNextVoiceline()
@@ -49,9 +51,19 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayFailureVoiceline()
     {
+        audioSource2 = gameObject.AddComponent<AudioSource>();
         audioSource.clip = finalFaliure[0];
         audioSource.Play();
-        audioSource.clip = finalFaliure[1];
-        audioSource.PlayDelayed(14f);
+        audioSource2.clip = finalFaliure[1];
+        audioSource2.PlayDelayed(14f);
+        uiController.StartFadeBlackOutSquareCoroutine();
     }
+
+    public IEnumerator startFirstVoiceline()
+    {
+        yield return new WaitForSeconds(6f);
+        PlayNextVoiceline();
+    }
+
+   
 }

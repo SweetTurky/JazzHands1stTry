@@ -37,13 +37,14 @@ public class UIcontroller : MonoBehaviour
 
     public IEnumerator fadeBlackOutSquare(bool fadeToBlack = true)
     {
-        yield return new WaitForSeconds(3f); // Wait for 3 seconds
+        yield return new WaitForSeconds(6f); // Wait for 3 seconds
 
         Color objectColor = fadeBlackImage.GetComponent<Image>().color;
         float fadeAmount;
 
         if (fadeToBlack)
         {
+            yield return new WaitForSeconds(8f);
             while (fadeBlackImage.GetComponent<Image>().color.a < 1)
             {
                 fadeAmount = objectColor.a + (fadeOutSpeed * Time.deltaTime);
@@ -65,6 +66,11 @@ public class UIcontroller : MonoBehaviour
         }
 
         
+    }
+
+    public void StartFadeBlackOutSquareCoroutine()
+    {
+        StartCoroutine(fadeBlackOutSquare(true));
     }
 }
 
