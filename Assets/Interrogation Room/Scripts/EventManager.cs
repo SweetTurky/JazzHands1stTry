@@ -19,14 +19,15 @@ public class EventManager : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.N))
         {
             biometricInputManager.LieDetection();
-            noCount++;
+            //noCount++;
         }
     }
 
     public void VoiceInput()
     {
-        soundManager.PlayNextVoiceline();
         soundManager.currentVoicelineIndex++;
+        soundManager.PlayNextVoiceline();
+        
         
     }
     

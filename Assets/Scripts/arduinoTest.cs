@@ -39,6 +39,9 @@ public class arduinoTest : MonoBehaviour
     public float GSRmeasurement1;
     public float GSRmeasurement2;
 
+    public float HRMmeasurement1;
+    public float HRMmeasurement2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,10 +82,10 @@ public class arduinoTest : MonoBehaviour
         {
             try
             {
-                string incomingData = serialPort2.ReadLine();
-                Debug.Log("Received data(HRM): " + incomingData);
+                string incomingData2 = serialPort2.ReadLine();
+                Debug.Log("Received data(HRM): " + incomingData2);
 
-                float hrmValue = float.Parse(incomingData); // Assuming incoming data is a float value
+                hrmValue = float.Parse(incomingData2); // Assuming incoming data is a float value
                 //hrmValues.Add(hrmValue);
 
                 //elapsedTime += Time.deltaTime;

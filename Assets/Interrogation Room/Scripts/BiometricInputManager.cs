@@ -27,22 +27,23 @@ public class BiometricInputManager : MonoBehaviour
     }
     public IEnumerator LieDetector()
     {
-        arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
-        yield return new WaitForSeconds(3f);
         lieCounter = 0;
+        arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
+        arduinoTest.HRMmeasurement1 = arduinoTest.hrmValue;
+        yield return new WaitForSeconds(3f);
         arduinoTest.GSRmeasurement2 = arduinoTest.gsrValue;
-
+        arduinoTest.HRMmeasurement2 = arduinoTest.hrmValue;
 
         if (uDPReceive.gooseBumps == true)
         {
             lieCounter++;
             Debug.Log("Goose Lie Counter+");
         }
-        /*if (heartRateMonitorScript.heartRateHigh == true)
+        if (arduinoTest.HRMmeasurement2 - arduinoTest.HRMmeasurement1 >= 5)
         {
             lieCounter++;
-        }*/
-        if (arduinoTest.GSRmeasurement2 - arduinoTest.GSRmeasurement1 >= 20)
+        }
+        if (arduinoTest.GSRmeasurement2 - arduinoTest.GSRmeasurement1 >= 10)
         {
             lieCounter++;
             Debug.Log("GSR Lie Counter+");
@@ -50,7 +51,13 @@ public class BiometricInputManager : MonoBehaviour
         if (lieCounter >= 2)
         {
             isAngry = true;
+            eventManager.noCount++;
         }
+        else if (lieCounter < 2)
+        {
+            isAngry = false;
+        }
+       
         eventManager.VoiceInput();
     }
 }
