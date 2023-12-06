@@ -9,6 +9,7 @@ public class BiometricInputManager : MonoBehaviour
     public UDPReceive uDPReceive;
     public SoundManager soundManager;
     public EventManager eventManager;
+    public arduinoTest arduinoTest;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,21 +27,26 @@ public class BiometricInputManager : MonoBehaviour
     }
     public IEnumerator LieDetector()
     {
+        arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
         yield return new WaitForSeconds(3f);
         lieCounter = 0;
-        
+        arduinoTest.GSRmeasurement2 = arduinoTest.gsrValue;
+
+
         if (uDPReceive.gooseBumps == true)
         {
             lieCounter++;
+            Debug.Log("Goose Lie Counter+");
         }
         /*if (heartRateMonitorScript.heartRateHigh == true)
         {
             lieCounter++;
-        }
-        if (galvanicSkinResponseScript.moistureHigh == true)
+        }*/
+        if (arduinoTest.GSRmeasurement2 - arduinoTest.GSRmeasurement1 >= 20)
         {
             lieCounter++;
-        }*/
+            Debug.Log("GSR Lie Counter+");
+        }
         if (lieCounter >= 2)
         {
             isAngry = true;

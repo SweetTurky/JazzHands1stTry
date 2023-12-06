@@ -9,22 +9,24 @@ using UnityEngine.UI;
 
 public class arduinoTest : MonoBehaviour
 {
+    public float gsrValue;
+    public float hrmValue;
 
-    public string portName = "COM3";
+    public string portName = "COM3"; //GSR
     public int baudRate = 9600;
-    public float measurementDuration = 5f;
+    //public float measurementDuration = 5f;
 
     private SerialPort serialPort;
-    public List<float> gsrValues = new List<float>();
+    //public List<float> gsrValues = new List<float>();
     private float elapsedTime = 0f;
 
 
-    public string portName2 = "COM7";
+    public string portName2 = "COM7"; //HRM
     public int baudRate2 = 115200;
     //public float measurementDuration2 = 5f;
 
     private SerialPort serialPort2;
-    public List<float> hrmValues = new List<float>();
+    //public List<float> hrmValues = new List<float>();
     //private float elapsedTime = 0f;
 
     /*public float graphWidth = 300f; // Width of the graph in pixels
@@ -34,12 +36,14 @@ public class arduinoTest : MonoBehaviour
     public Image graphImage; // Reference to the UI Image representing the graph
     */
 
+    public float GSRmeasurement1;
+    public float GSRmeasurement2;
 
     // Start is called before the first frame update
     void Start()
     {
-        serialPort = new SerialPort(portName, baudRate);
-        serialPort2 = new SerialPort(portName2, baudRate2);
+        serialPort = new SerialPort(portName, baudRate); //GSR
+        serialPort2 = new SerialPort(portName2, baudRate2); //HRM
         OpenSerialPort();
 
     }
@@ -52,10 +56,10 @@ public class arduinoTest : MonoBehaviour
             try
             {
                 string incomingData = serialPort.ReadLine();
-                Debug.Log("Received data(GSR): " + incomingData);
+                //Debug.Log("Received data(GSR): " + incomingData);
 
-                float gsrValue = float.Parse(incomingData); // Assuming incoming data is a float value
-                gsrValues.Add(gsrValue);
+                gsrValue = float.Parse(incomingData); // Assuming incoming data is a float value
+                /*gsrValues.Add(gsrValue);
 
                 elapsedTime += Time.deltaTime;
 
@@ -64,7 +68,7 @@ public class arduinoTest : MonoBehaviour
                     //PlotGSRData();
                     CalculateMeanGSRValue();
                     elapsedTime = 0f;
-                }
+                }*/
             }
             catch (System.Exception e)
             {
@@ -79,7 +83,7 @@ public class arduinoTest : MonoBehaviour
                 Debug.Log("Received data(HRM): " + incomingData);
 
                 float hrmValue = float.Parse(incomingData); // Assuming incoming data is a float value
-                hrmValues.Add(hrmValue);
+                //hrmValues.Add(hrmValue);
 
                 //elapsedTime += Time.deltaTime;
 
@@ -122,7 +126,7 @@ public class arduinoTest : MonoBehaviour
         }
     }
 
-    void CalculateMeanGSRValue()
+    /*void CalculateMeanGSRValue()
     {
         if (gsrValues.Count > 0)
         {
@@ -131,14 +135,14 @@ public class arduinoTest : MonoBehaviour
             {
                 sum += value;
             }
-            float meanValue = sum / gsrValues.Count;
+            float meanGSRValue = sum / gsrValues.Count;
 
-            Debug.Log("Mean GSR value over " + measurementDuration + " seconds: " + meanValue);
+            Debug.Log("Mean GSR value over " + measurementDuration + " seconds: " + meanGSRValue);
 
             // Reset the list for the next calculation
             gsrValues.Clear();
         }
-    }
+    }*/
 
     /*void PlotGSRData()
     {

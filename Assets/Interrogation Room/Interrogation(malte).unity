@@ -1313,6 +1313,7 @@ MonoBehaviour:
   uDPReceive: {fileID: 1284314598}
   soundManager: {fileID: 412178212}
   eventManager: {fileID: 412178211}
+  arduinoTest: {fileID: 1850408368}
 --- !u!114 &412178211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,6 +2220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9b9cd0b7f7dc14d88ded8cfba9cd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gsrValue: 0
   portName: COM3
   baudRate: 9600
   measurementDuration: 5
@@ -2226,6 +2228,8 @@ MonoBehaviour:
   portName2: COM7
   baudRate2: 115200
   hrmValues: []
+  GSRmeasurement1: 0
+  GSRmeasurement2: 0
 --- !u!4 &1850408369
 Transform:
   m_ObjectHideFlags: 0
