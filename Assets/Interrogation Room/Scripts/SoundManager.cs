@@ -51,5 +51,7 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.clip = finalFaliure[0];
         audioSource.Play();
+        audioSource.clip = finalFaliure[1];
+        audioSource.PlayDelayed(14f);
     }
 }

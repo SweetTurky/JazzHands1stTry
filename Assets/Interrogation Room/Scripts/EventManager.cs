@@ -19,7 +19,7 @@ public class EventManager : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.N))
         {
             biometricInputManager.LieDetection();
-            //noCount++;
+            noCount++;
         }
     }
 
