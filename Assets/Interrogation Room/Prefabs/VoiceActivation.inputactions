@@ -1,0 +1,45 @@
+{
+    "name": "VoiceActivation",
+    "maps": [
+        {
+            "name": "VRactivation",
+            "id": "9af0f811-18b2-40ad-bb4b-b3bbf1093c5f",
+            "actions": [
+                {
+                    "name": "TriggerPressPath",
+                    "type": "Button",
+                    "id": "3c4c8f48-6f28-4d52-b8d7-fe04c4f2b6f8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "13d7801d-597c-4a78-9c39-258cbc083033",
+                    "path": "<XRController>{RightHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerPressPath",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e585fe7-e410-4f8c-9bc7-531dc7cb03e4",
+                    "path": "<XRController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerPressPath",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
