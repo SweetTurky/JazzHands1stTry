@@ -18,7 +18,7 @@ public class arduinoTest : MonoBehaviour
 
     private SerialPort serialPort;
     //public List<float> gsrValues = new List<float>();
-    private float elapsedTime = 0f;
+    //private float elapsedTime = 0f;
 
 
     public string portName2 = "COM7"; //HRM
@@ -54,6 +54,13 @@ public class arduinoTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+       
+
+    }
+
+    public void gsrRead()
+    {
         if (serialPort.IsOpen)
         {
             try
@@ -78,12 +85,16 @@ public class arduinoTest : MonoBehaviour
                 Debug.LogWarning("Error reading serial port: " + e.Message);
             }
         }
+    }
+
+    public void hrmRead()
+    {
         if (serialPort2.IsOpen)
         {
             try
             {
                 string incomingData2 = serialPort2.ReadLine();
-                Debug.Log("Received data(HRM): " + incomingData2);
+                //Debug.Log("Received data(HRM): " + incomingData2);
 
                 hrmValue = float.Parse(incomingData2); // Assuming incoming data is a float value
                 //hrmValues.Add(hrmValue);
@@ -102,8 +113,9 @@ public class arduinoTest : MonoBehaviour
                 Debug.LogWarning("Error reading serial port: " + e.Message);
             }
         }
-
     }
+
+
 
     void OpenSerialPort()
     {

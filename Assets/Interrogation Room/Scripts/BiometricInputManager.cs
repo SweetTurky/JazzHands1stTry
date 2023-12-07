@@ -24,15 +24,24 @@ public class BiometricInputManager : MonoBehaviour
     public void LieDetection()
     {
         StartCoroutine(LieDetector());
+        Debug.Log("LieDetector start");
     }
     public IEnumerator LieDetector()
     {
         lieCounter = 0;
+        arduinoTest.gsrRead();
+        arduinoTest.hrmRead();
         arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement1 = arduinoTest.hrmValue;
+        Debug.Log("GSR= " + arduinoTest.GSRmeasurement1);
+        Debug.Log("HRM= " + arduinoTest.HRMmeasurement1);
         yield return new WaitForSeconds(3f);
+        arduinoTest.gsrRead();
+        arduinoTest.hrmRead();
         arduinoTest.GSRmeasurement2 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement2 = arduinoTest.hrmValue;
+        Debug.Log("GSR2= " + arduinoTest.GSRmeasurement2);
+        Debug.Log("HRM2= " + arduinoTest.HRMmeasurement2);
 
         if (uDPReceive.gooseBumps == true)
         {
@@ -42,6 +51,7 @@ public class BiometricInputManager : MonoBehaviour
         if (arduinoTest.HRMmeasurement2 - arduinoTest.HRMmeasurement1 >= 5)
         {
             lieCounter++;
+            Debug.Log("Hear Rate Lie Counter+");
         }
         if (arduinoTest.GSRmeasurement2 - arduinoTest.GSRmeasurement1 >= 10)
         {

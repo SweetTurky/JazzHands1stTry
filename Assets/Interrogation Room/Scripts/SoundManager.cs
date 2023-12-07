@@ -42,6 +42,7 @@ public class SoundManager : MonoBehaviour
                 PlaySuccessVoiceline();
             }
             }
+        Debug.Log("Next Voiceline Play");
         
     }
     public void PlaySuccessVoiceline()
