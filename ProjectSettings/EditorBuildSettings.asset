@@ -24,6 +24,8 @@ EditorBuildSettings:
     path: Assets/Interrogation Room/Interrogation(malte).unity
     guid: f23b5d54b3c5305488c0d40566c7558a
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d7fa522e67a42174ba8f8554b47a267e,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e49d6c04636888e4fb4d0524e92bb473,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 45de91073b377ac46ba69da7e5b0f383,

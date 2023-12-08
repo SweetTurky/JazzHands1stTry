@@ -20,9 +20,9 @@ MonoBehaviour:
     isPrivate: 0
     createdAt: 2023-12-04T04:17:39-0800
     trainingStatus: 1
-    lastTrainDuration: 52
-    lastTrainedAt: 2023-12-06T03:52:07-0800
-    nextTrainAt: 2023-12-06T03:51:15-0800
+    lastTrainDuration: 54
+    lastTrainedAt: 2023-12-06T06:21:36-0800
+    nextTrainAt: 2023-12-06T06:20:42-0800
     intents:
     - id: 373182395184224
       name: wit$confirmation
@@ -35,85 +35,6 @@ MonoBehaviour:
       - name: wit_negate:wit_negate
         id: 852108646395665
     entities:
-    - name: ChessBoardLetter
-      id: 1527593114742581
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ChessBoardLetter
-        id: 1804160643351581
-      keywords:
-      - keyword: A
-        synonyms: []
-      - keyword: B
-        synonyms: []
-      - keyword: C
-        synonyms: []
-      - keyword: D
-        synonyms: []
-      - keyword: E
-        synonyms: []
-      - keyword: F
-        synonyms: []
-      - keyword: G
-        synonyms: []
-      - keyword: H
-        synonyms: []
-    - name: ColorName
-      id: 666447735358646
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ColorName
-        id: 658581103097316
-      keywords:
-      - keyword: black
-        synonyms: []
-      - keyword: blue
-        synonyms: []
-      - keyword: brown
-        synonyms: []
-      - keyword: gold
-        synonyms: []
-      - keyword: green
-        synonyms: []
-      - keyword: magenta
-        synonyms: []
-      - keyword: maroon
-        synonyms: []
-      - keyword: orange
-        synonyms: []
-      - keyword: pink
-        synonyms: []
-      - keyword: purple
-        synonyms: []
-      - keyword: red
-        synonyms: []
-      - keyword: violet
-        synonyms: []
-      - keyword: white
-        synonyms: []
-      - keyword: yellow
-        synonyms: []
-    - name: ShapeName
-      id: 830190498847894
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ShapeName
-        id: 660153616294866
-      keywords:
-      - keyword: capsule
-        synonyms: []
-      - keyword: cube
-        synonyms: []
-      - keyword: cylinder
-        synonyms: []
-      - keyword: sphere
-        synonyms: []
     - name: wit_confirm
       id: 904586201054477
       lookups:
@@ -123,6 +44,12 @@ MonoBehaviour:
       - name: wit_confirm
         id: 285390867834144
       keywords:
+      - keyword: Ja
+        synonyms:
+        - ja
+      - keyword: Yeah
+        synonyms:
+        - yeah
       - keyword: Yes
         synonyms:
         - absolutely
@@ -144,6 +71,12 @@ MonoBehaviour:
       - name: wit_negate
         id: 852108646395665
       keywords:
+      - keyword: ','
+        synonyms:
+        - ','
+      - keyword: Certainly
+        synonyms:
+        - certainly
       - keyword: No
         synonyms:
         - negative
@@ -153,6 +86,9 @@ MonoBehaviour:
         - not at all
         - not really
         - of course not
+      - keyword: not
+        synonyms:
+        - not
     traits: []
     versionTags: []
     voices:

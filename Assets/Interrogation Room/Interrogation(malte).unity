@@ -1015,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1208232816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1714,9 +1714,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gsrValue: 0
   hrmValue: 0
-  portName: COM3
+  portName: COM11
   baudRate: 9600
-  portName2: COM7
+  portName2: COM12
   baudRate2: 115200
   GSRmeasurement1: 0
   GSRmeasurement2: 0
@@ -3280,6 +3280,8 @@ GameObject:
   - component: {fileID: 2809875831573592211}
   - component: {fileID: 822593171154818071}
   - component: {fileID: 2247239504380972745}
+  - component: {fileID: 6466488344317620691}
+  - component: {fileID: 6466488344317620690}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7461,6 +7463,41 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!169 &6466488344317620690
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871424583648713786}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 10
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.09049568
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!165 &6466488344317620691
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871424583648713786}
+  m_Enabled: 1
+  m_CutoffFrequency: 1000
+  m_HighpassResonanceQ: 1
 --- !u!4 &6473117107448026262
 Transform:
   m_ObjectHideFlags: 0

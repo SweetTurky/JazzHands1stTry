@@ -62,7 +62,7 @@ public class SoundManager : MonoBehaviour
 
     public IEnumerator startFirstVoiceline()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(10f);
         PlayNextVoiceline();
     }
 
