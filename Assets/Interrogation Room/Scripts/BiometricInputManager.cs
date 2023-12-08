@@ -19,7 +19,7 @@ public class BiometricInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        arduinoTest.hrmRead();
     }
     public void LieDetection()
     {
@@ -29,15 +29,13 @@ public class BiometricInputManager : MonoBehaviour
     public IEnumerator LieDetector()
     {
         lieCounter = 0;
-        arduinoTest.OpenSerialPort();
         arduinoTest.gsrRead();
-        arduinoTest.hrmRead();
         arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement1 = arduinoTest.hrmValue;
         Debug.Log("GSR= " + arduinoTest.GSRmeasurement1 + "HRM= " + arduinoTest.HRMmeasurement1);
         yield return new WaitForSeconds(4f);
         arduinoTest.gsrRead();
-        arduinoTest.hrmRead();
+
         arduinoTest.GSRmeasurement2 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement2 = arduinoTest.hrmValue;
         Debug.Log("GSR2= " + arduinoTest.GSRmeasurement2 + "HRM2= " + arduinoTest.HRMmeasurement2);
@@ -66,7 +64,7 @@ public class BiometricInputManager : MonoBehaviour
         {
             isAngry = false;
         }
-        arduinoTest.CloseSerialPort();
+        
         eventManager.VoiceInput();
     }
 }
