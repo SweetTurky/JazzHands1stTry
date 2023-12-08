@@ -29,45 +29,44 @@ public class BiometricInputManager : MonoBehaviour
     public IEnumerator LieDetector()
     {
         lieCounter = 0;
+        arduinoTest.OpenSerialPort();
         arduinoTest.gsrRead();
         arduinoTest.hrmRead();
         arduinoTest.GSRmeasurement1 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement1 = arduinoTest.hrmValue;
-        Debug.Log("GSR= " + arduinoTest.GSRmeasurement1);
-        Debug.Log("HRM= " + arduinoTest.HRMmeasurement1);
-        yield return new WaitForSeconds(3f);
+        Debug.Log("GSR= " + arduinoTest.GSRmeasurement1 + "HRM= " + arduinoTest.HRMmeasurement1);
+        yield return new WaitForSeconds(4f);
         arduinoTest.gsrRead();
         arduinoTest.hrmRead();
         arduinoTest.GSRmeasurement2 = arduinoTest.gsrValue;
         arduinoTest.HRMmeasurement2 = arduinoTest.hrmValue;
-        Debug.Log("GSR2= " + arduinoTest.GSRmeasurement2);
-        Debug.Log("HRM2= " + arduinoTest.HRMmeasurement2);
+        Debug.Log("GSR2= " + arduinoTest.GSRmeasurement2 + "HRM2= " + arduinoTest.HRMmeasurement2);
 
         if (uDPReceive.gooseBumps == true)
         {
             lieCounter++;
             Debug.Log("Goose Lie Counter+");
         }
-        if (arduinoTest.HRMmeasurement2 - arduinoTest.HRMmeasurement1 >= 5)
+        if (arduinoTest.HRMmeasurement2 > arduinoTest.HRMmeasurement1)
         {
             lieCounter++;
             Debug.Log("Hear Rate Lie Counter+");
         }
-        if (arduinoTest.GSRmeasurement2 - arduinoTest.GSRmeasurement1 >= 10)
+        if (arduinoTest.GSRmeasurement2 > arduinoTest.GSRmeasurement1)
         {
             lieCounter++;
             Debug.Log("GSR Lie Counter+");
         }
-        if (lieCounter >= 2)
+        if (lieCounter >= 1)
         {
             isAngry = true;
             eventManager.noCount++;
         }
-        else if (lieCounter < 2)
+        else if (lieCounter < 1)
         {
             isAngry = false;
         }
-       
+        arduinoTest.CloseSerialPort();
         eventManager.VoiceInput();
     }
 }

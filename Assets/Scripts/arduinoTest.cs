@@ -21,7 +21,7 @@ public class arduinoTest : MonoBehaviour
     //private float elapsedTime = 0f;
 
 
-    public string portName2 = "COM7"; //HRM
+    public string portName2 = "COM14"; //HRM
     public int baudRate2 = 115200;
     //public float measurementDuration2 = 5f;
 
@@ -47,7 +47,6 @@ public class arduinoTest : MonoBehaviour
     {
         serialPort = new SerialPort(portName, baudRate); //GSR
         serialPort2 = new SerialPort(portName2, baudRate2); //HRM
-        OpenSerialPort();
 
     }
 
@@ -117,13 +116,26 @@ public class arduinoTest : MonoBehaviour
 
 
 
-    void OpenSerialPort()
+    public void OpenSerialPort()
     {
         try
         {
             serialPort.Open();
             serialPort2.Open();
-            Debug.Log("Serial port opened: " + portName);
+            Debug.Log("Serial port opened: " + portName + portName2);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("Error opening serial port: " + e.Message);
+        }
+    }
+    public void CloseSerialPort()
+    {
+        try
+        {
+            serialPort.Close();
+            serialPort2.Close();
+            Debug.Log("Serial port closed: " + portName + portName2);
         }
         catch (System.Exception e)
         {
