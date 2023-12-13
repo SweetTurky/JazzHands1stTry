@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/JazzHands/UnderwaterScene.unity
     guid: 76f60b6456798304d96e7911d6a80eb0
   - enabled: 1
-    path: Assets/Interrogation Room/Interrogation(malte).unity
+    path: Assets/Interrogation Room/InterrogationRoom (Final).unity
     guid: f23b5d54b3c5305488c0d40566c7558a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d7fa522e67a42174ba8f8554b47a267e,
